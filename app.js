@@ -99,12 +99,11 @@ app.put('/students/:studentId/teachers/:teacherId', (req, res, next) => {
 
 	Student.findById(studentId)
 		.then((student) => {
+			// console.log('student', student);
 			student.update({teacherId: teacherId})
 		})
 		.then((updatedStudent) => {
-			if (updatedStudent) {
-				res.sendStatus(204)
-			}
+			res.sendStatus(204)
 		})
 		.catch(next);
 	
